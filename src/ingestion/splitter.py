@@ -3,6 +3,7 @@ import base64
 from pydantic import BaseModel
 from typing import List
 import time
+import textwrap
 
 # need to do ollama run qwen2.5-vl to add to your ollama list
 
@@ -27,39 +28,46 @@ def generate_slide_description(
         image_path: str,
         raw_text: str
 ) -> str:
-    base64_image = encode_image(image_path)
+    # base64_image = encode_image(image_path)
 
-    prompt = f"""
+    prompt = textwrap.dedent("""
     
-    You are analyzing a slide image from a lecture deck. 
+    You are describing visual content on a lecture slide for a search index.
 
-    Text already extracted from slide:
-    "{raw_text}"
+    Text already extracted from this slide (reference only):
+    <extracted_text>
+    {raw_text}
+    </extracted_text>
 
-    TASK:
-    1. Identify if this slide contains non-text visual elements (e.g., diagrams, graphs, charts, flowcharts, formulas, formulas in images, logos, or photos).
-    2. IF VISUAL ELEMENTS ARE PRESENT, inspect them using these steps before describing:
-        - Panel Count: Count total distinct chart panels or images (e.g. 1 single plot, 2x2 grid).
-        - Chart Identification: For each plot, explicitly verify if it uses individual dots (scatter plot), vertical blocks (histogram/bar chart), or lines (line chart).
-        - Axes: Identify exact X-axis and Y-axis variable names.
-        - Trend/Meaning: Summarize key trends or relationship shown across the visual elements.
-    
-    CRITICAL RULES:
-        - Combine these observations into a single concise paragraph.
-        - Do NOT re-summarize or transcribe the plain text already extracted above.
-        - Do NOT mention slide numbers, page counters (e.g. "X/49"), or state what is missing.
+    Look at the slide image. Decide whether it contains a diagram, chart, graph, formula, table, or informative image.
+    Logos, backgrounds, decorative pictures, and slide numbers do not count.
 
-    """
+    If there is none, answer with the single word: NONE
+
+    If there is one, write one short paragraph explaining what the visual shows and what it means.
+    Mention axis labels, components and how they connect, or formula variables where relevant.
+    Describe only what you can clearly see. Use the extracted text for context but do not repeat it.
+
+    Example answer for a slide with only bullet points and a university logo:
+    NONE
+
+    Example answer for a slide with a chart:
+    A line graph of training and validation loss against epochs. Training loss falls steadily, while validation loss falls until about epoch 10 and then rises, illustrating overfitting.
+
+    Your answer:
+
+    """).strip()
 
     response = ollama.chat(
-        model="qwen2.5:3b",
+        model="qwen2.5vl:7b",
         messages=[
             {
                 "role": "user",
                 "content": prompt,
-                "images": [base64_image],
+                "images": [image_path],
             }
         ],
+        options={"temperature": 0.0},
     )
     return response['message']['content']
 
@@ -118,7 +126,7 @@ def process_slides_with_context(
 
         print(f"Done {elapsed:.2f}s")
 
-        print(combined_text)
+        print(vision_desc)
 
     return processed_chunk
     

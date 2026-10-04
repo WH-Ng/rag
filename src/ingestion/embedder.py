@@ -1,0 +1,48 @@
+import ollama
+from typing import List
+import json
+
+def generate_embeddings(
+      texts: List[str],
+      batch_size: int=32) -> List[List[float]]:
+    
+    all_embeddings = []
+
+    for i in range(0, len(texts), batch_size):
+       
+       batch = texts[i:i + batch_size]
+
+       response = ollama.embed(
+            model='bge-m3',
+            input=batch
+        )
+       
+       all_embeddings.extend(response['embeddings'])
+       print(f"Processed batch {i // batch_size + 1}/{(len(texts) + batch_size - 1) // batch_size}")
+
+    return all_embeddings
+
+def main():
+   
+   processed_slides_path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/processed_chunks.json"
+   with open(processed_slides_path, 'r') as f:
+        data = json.load(f)
+
+   text_list = [slide['combined_text'].strip() for slide in data]
+   embeddings = generate_embeddings(text_list, batch_size=32)
+
+   for slide, embedding in zip(data, embeddings):
+      slide['embedding'] = embedding
+
+   print(f"\nSuccessfully generated embeddings for {len(data)} slides.")
+   print(f"Vector dimensions: {len(embeddings[0])}")
+
+   output_path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/embedded_chunks.json"
+   
+   with open(output_path, 'w', encoding='utf-8') as f:
+        json.dump(data, f, indent=2)   
+
+   return data
+
+if __name__=="__main__":
+    main()
