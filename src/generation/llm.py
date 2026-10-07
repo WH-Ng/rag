@@ -1,28 +1,15 @@
-from retrieval.search import search
-from generation.prompts import get_rag_messages
 import ollama
+from generation.prompts import get_rag_messages
 
-def generate_answer(
-        query_text: str,
-        top_k: int,
-        db_dir: str,
-        model_name: str):
-    
-    hits = search(query_text=query_text, top_k=top_k, db_dir=db_dir)
-
+def generate_answer(query_text: str, hits: list[dict], model_name: str) -> str:
     messages = get_rag_messages(query_text, hits)
-
-    response=ollama.chat(
+    response = ollama.chat(
         model=model_name,
         messages=messages,
-        options={
-            "temperature": 0,
-            "num_ctx": 8192
-        }
+        options={"temperature": 0, "num_ctx": 8192},
     )
 
     output = response["message"]["content"]
-
     return output
 
 if __name__=="__main__":

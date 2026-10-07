@@ -72,13 +72,6 @@ if __name__=="__main__":
         meta["image_path"] = item['image_path']
         metadatas.append(meta)
 
-    collection.add(
-        ids=ids,
-        embeddings=embeddings,
-        documents=documents,
-        metadatas=metadatas,
-    )
-
     print(f"Loaded {len(ids)} slides into ChromaDB!")
 
     results = search("What is statistical inference?", top_k=3, db_dir=db_dir)
