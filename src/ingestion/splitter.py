@@ -30,7 +30,7 @@ def generate_slide_description(
 ) -> str:
     # base64_image = encode_image(image_path)
 
-    prompt = textwrap.dedent("""
+    prompt = textwrap.dedent(f"""
     
     You are describing visual content on a lecture slide for a search index.
 
@@ -95,7 +95,7 @@ def process_slides_with_context(
 
         next_title = (f"Slide {raw_slides[idx+1].slide_num}" if idx < total - 1 else "End of deck")
 
-        if vision_desc.strip().upper() == "NONE" or "NONE" in vision_desc.upper():
+        if vision_desc.strip().upper() == "NONE":
             combined_text = f"""
         [CONTEXT]: Previous slide was {prev_title}. Next slide is {next_title}.
         [SLIDE {slide.slide_num} TEXT]:
