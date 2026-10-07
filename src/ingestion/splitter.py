@@ -75,6 +75,7 @@ def generate_slide_description(
 def process_slides_with_context(
         raw_slides: List,
 ) -> List[SlideChunk]:
+    
     processed_chunk = []
 
     total = len(raw_slides)
@@ -97,19 +98,20 @@ def process_slides_with_context(
         next_title = (f"Slide {raw_slides[idx+1].slide_num}" if idx < total - 1 else "End of deck")
 
         if vision_desc.strip().upper() == "NONE":
+
             combined_text = f"""
-        [CONTEXT]: Previous slide was {prev_title}. Next slide is {next_title}.
-        [SLIDE {slide.slide_num} TEXT]:
-        {slide.text}
-        """
+                [CONTEXT]: Previous slide was {prev_title}. Next slide is {next_title}.
+                [SLIDE {slide.slide_num} TEXT]:
+                {slide.text}
+                """
         else:
             combined_text = f"""
-        [CONTEXT]: Previous slide was {prev_title}. Next slide is {next_title}.
-        [SLIDE {slide.slide_num} TEXT]:
-        {slide.text}
-        [VISUAL DESCRIPTION]:
-        {vision_desc}
-        """
+                [CONTEXT]: Previous slide was {prev_title}. Next slide is {next_title}.
+                [SLIDE {slide.slide_num} TEXT]:
+                {slide.text}
+                [VISUAL DESCRIPTION]:
+                {vision_desc}
+                """
 
         processed_chunk.append(
             SlideChunk(
@@ -125,10 +127,6 @@ def process_slides_with_context(
             )
         )
 
-        print(f"Done {elapsed:.2f}s")
-
-        print(vision_desc)
-
     return processed_chunk
     
 
@@ -136,15 +134,17 @@ def main():
 
     from ingestion.loader import SlideData
     import json
+    import os
+    from config import PROCESSED_DIR
 
-    raw_text_path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/slides_info.json"
+    slides_info_path = os.path.join(PROCESSED_DIR, "slides_info.json")
 
-    with open(raw_text_path, "r") as f:
+    with open(slides_info_path, "r") as f:
         data = json.load(f)
 
     raw_slides = [SlideData.model_validate(item) for item in data]
 
-    print(f"Loading raw slide data from: {raw_text_path}")
+    print(f"Loading raw slide data from: {slides_info_path}")
     processed_slides = process_slides_with_context(raw_slides)
 
     print(f"Processed {len(processed_slides)} slides successfully.")

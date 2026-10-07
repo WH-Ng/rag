@@ -15,7 +15,6 @@ class SlideData(BaseModel):
     image_path: str
     pdf_name: str
 
-
 def load_lecture_slides(pdf_path: str,
                         output_dir: str,
                         dpi: int) -> List[SlideData]:
@@ -49,12 +48,13 @@ def load_lecture_slides(pdf_path: str,
     return slides
 
 def main():
-    example_pdf = "/Users/wayne/Personal_Project/rag/data/raw/Lectures/01_Introduction.pdf"
-    output_dir = "/Users/wayne/Personal_Project/rag/data/processed/Lectures"
 
-    slides = load_lecture_slides(example_pdf, output_dir, dpi=200)
+    from config import RAW_DIR, PROCESSED_DIR
+    import os
+    
+    slides = load_lecture_slides(os.path.join(RAW_DIR, "01_Introduction.pdf"), PROCESSED_DIR, dpi=200)
 
-    with open(f"{output_dir}/slides_info.json", "w") as f:
+    with open(f"{PROCESSED_DIR}/slides_info.json", "w") as f:
         json.dump([slide.model_dump() for slide in slides], f, indent=2)
         # Able to do model_dump() because of pydantic class BaseModel
         # we can then reconstruct it back to the object by doing 

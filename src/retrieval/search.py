@@ -45,9 +45,9 @@ def search(
 
 if __name__ == "__main__":
 
-    db_dir = "/Users/wayne/Personal_Project/rag/storage/chroma_db"
+    from config import DB_DIR, TOP_K
 
-    for res in search("What is statistical inference?", top_k=3, db_dir=db_dir):
+    for res in search("What is statistical inference?", top_k=TOP_K, db_dir=DB_DIR):
 
         print(f"Slide {res['metadata']['slide_num']} | distance {res['distance']:.4f}")
 

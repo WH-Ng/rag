@@ -1,13 +1,12 @@
 import chromadb
 import json
+import os
+from config import DB_DIR, PROCESSED_DIR
 
-db_dir = "/Users/wayne/Personal_Project/rag/storage/chroma_db"
-data_json = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/embedded_chunks.json"
-
-client = chromadb.PersistentClient(path=db_dir)
+client = chromadb.PersistentClient(path=DB_DIR)
 collection = client.get_or_create_collection("lectures")
 
-data = json.load(open(data_json))
+data = json.load(open(os.path.json(PROCESSED_DIR, "embedded_chunks.json")))
 
 collection.upsert(                                        
     ids=[f"{c['metadata']['pdf_name']}_{c['slide_num']}" for c in data],

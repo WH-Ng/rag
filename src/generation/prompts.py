@@ -38,14 +38,3 @@ def get_rag_messages(query_text: str, hits: List[Dict]) -> List[Dict[str, str]]:
         {"role": "system", "content": system_prompt},
         {"role": "user", "content": user_prompt},
     ]
-
-if __name__=="__main__":
-    import json
-    path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/embedded_chunks.json"
-
-    with open(path, 'r') as f:
-        data = json.load(f)
-
-    context_blocks = format_slide_context(data)
-
-    print(context_blocks)

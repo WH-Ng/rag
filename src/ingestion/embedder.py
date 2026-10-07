@@ -1,7 +1,7 @@
 import ollama
 from typing import List
 import json
-from config import EMBED_MODEL
+from config import EMBED_MODEL, PROCESSED_DIR
 
 def generate_embeddings(
       texts: List[str],
@@ -19,13 +19,14 @@ def generate_embeddings(
         )
        
        all_embeddings.extend(response['embeddings'])
-       print(f"Processed batch {i // batch_size + 1}/{(len(texts) + batch_size - 1) // batch_size}")
 
     return all_embeddings
 
 def main():
    
-   processed_slides_path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/processed_chunks.json"
+   import os
+   
+   processed_slides_path = os.path.join(PROCESSED_DIR, "processed_chunks.json")
    with open(processed_slides_path, 'r') as f:
         data = json.load(f)
 
