@@ -9,14 +9,14 @@ def get_chroma_collection(db_dir: str):
     Connects to local persistent ChromaDB
     """
     client = chromadb.PersistentClient(path=db_dir)
-    collection = client.get_or_create_collection(name="lecture_slides")
+    collection = client.get_collection(name="lectures")
     
     return collection
 
 def search(
         query_text: str,
         top_k: int,
-        db_dir=str) -> List[Dict]:
+        db_dir: str) -> List[Dict]:
     
     query_vector = generate_embeddings([query_text])[0]
 

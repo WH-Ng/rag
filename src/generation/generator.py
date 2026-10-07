@@ -32,8 +32,8 @@ def generate(question: str, chunks: list[dict]) -> str:
             {"role": "user", "content": user_prompt},
         ],
         options={
-            "temperature": 0,    # same question → same answer; good for testing
-            "num_ctx": 8192,     # context window size, see note below
+            "temperature": 0,    
+            "num_ctx": 8192,     
         },
     )
     return response["message"]["content"]

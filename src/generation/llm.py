@@ -14,7 +14,11 @@ def generate_answer(
 
     response=ollama.chat(
         model=model_name,
-        messages=messages
+        messages=messages,
+        options={
+            "temperature": 0,
+            "num_ctx": 8192
+        }
     )
 
     output = response["message"]["content"]

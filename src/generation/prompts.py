@@ -5,12 +5,11 @@ def format_slide_context(hits: List[Dict]) -> str:
     context_blocks = []
 
     for hit in hits:
-        print(hit.keys())
         slide_num = hit["metadata"].get("slide_num", "Unknown")
         pdf_name = hit['metadata'].get("pdf_name", "Unknown")
         text = hit["text"]
 
-        block = f"[Source: {pdf_name} - Slide {slide_num}\n{text}]"
+        block = f"[Source: {pdf_name} - Slide {slide_num}]\n{text}"
         context_blocks.append(block)
 
     cb = "\n\n---\n\n".join(context_blocks)
@@ -21,12 +20,13 @@ def get_rag_messages(query_text: str, hits: List[Dict]) -> List[Dict[str, str]]:
     
     context_str = format_slide_context(hits)
 
-    system_prompt = (
-        "You are an expert university teaching assistant.\n"
-        "Answer the student's question strictly using the provided slide context.\n"
-        "Always cite the exact slide sources (e.g., [01_Introduction.pdf - Slide 3]) when stating facts.\n"
-        "If the context does not contain enough information to answer, state that clearly."
-    )
+    system_prompt = ("""
+        You are a teaching assistant answering questions about lecture slides.
+        Answer using ONLY the lecture excerpts provided.
+        After each fact, cite the slide it came from, e.g. (01_Introduction.pdf, slide 5).
+        If the excerpts do not contain the answer, say "I couldn't find that in the lecture slides."
+        Do not use outside knowledge.
+    """)
 
     user_prompt = (
         f"--- SLIDE CONTEXT ---\n{context_str}\n\n"
