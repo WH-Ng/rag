@@ -4,6 +4,7 @@ from pydantic import BaseModel
 from typing import List
 import time
 import textwrap
+from config import VISION_MODEL
 
 # need to do ollama run qwen2.5-vl to add to your ollama list
 
@@ -59,7 +60,7 @@ def generate_slide_description(
     """).strip()
 
     response = ollama.chat(
-        model="qwen2.5vl:7b",
+        model=VISION_MODEL,
         messages=[
             {
                 "role": "user",

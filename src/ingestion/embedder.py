@@ -1,6 +1,7 @@
 import ollama
 from typing import List
 import json
+from config import EMBED_MODEL
 
 def generate_embeddings(
       texts: List[str],
@@ -13,7 +14,7 @@ def generate_embeddings(
        batch = texts[i:i + batch_size]
 
        response = ollama.embed(
-            model='bge-m3',
+            model=EMBED_MODEL,
             input=batch
         )
        

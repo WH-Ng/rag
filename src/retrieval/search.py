@@ -1,6 +1,5 @@
 import chromadb
 from ingestion.embedder import generate_embeddings
-import json
 from typing import List, Dict
 
 def get_chroma_collection(db_dir: str):
@@ -44,44 +43,11 @@ def search(
 
     return hits
 
-if __name__=="__main__":
+if __name__ == "__main__":
 
-    embeddings_path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/embedded_chunks.json"
     db_dir = "/Users/wayne/Personal_Project/rag/storage/chroma_db"
 
-    with open(embeddings_path, "r") as f:
-        chunks = json.load(f)
+    for res in search("What is statistical inference?", top_k=3, db_dir=db_dir):
 
-    collection = get_chroma_collection(db_dir)
-    ids = []
-    embeddings = []
-    documents = []
-    metadatas = []
-
-    for item in chunks:
-        pdf_name = item["metadata"]["pdf_name"]
-        slide_num = item["slide_num"]
-
-        chunk_id = f"{pdf_name}_slide_{slide_num}"
-
-        ids.append(chunk_id)
-        embeddings.append(item["embedding"])
-        documents.append(item["combined_text"])
-
-        meta = item["metadata"]
-        meta["image_path"] = item['image_path']
-        metadatas.append(meta)
-
-    print(f"Loaded {len(ids)} slides into ChromaDB!")
-
-    results = search("What is statistical inference?", top_k=3, db_dir=db_dir)
-
-    print(results)
-
-    print("\n--- Search Results ---")
-    for res in results:
-        print(
-            f"Slide {res['metadata']['slide_num']} | Score: {res['distance']:.4f} | Path: {res['metadata'].get('image_path')}"
-        )
-
+        print(f"Slide {res['metadata']['slide_num']} | distance {res['distance']:.4f}")
 

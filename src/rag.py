@@ -2,15 +2,13 @@
 import time
 from retrieval.search import search
 from generation.llm import generate_answer
-
-DB_DIR = "/Users/wayne/Personal_Project/rag/storage/chroma_db"   # moves to config.py later
-MODEL = "qwen2.5:7b"
+from config import DB_DIR, LLM_MODEL
 
 def answer(question: str, top_k: int = 4) -> dict:
     t0 = time.perf_counter()
     hits = search(question, top_k=top_k, db_dir=DB_DIR)        # step 1: find slides
     t1 = time.perf_counter()
-    text = generate_answer(question, hits, MODEL)             # step 2: write answer
+    text = generate_answer(question, hits, LLM_MODEL)             # step 2: write answer
     t2 = time.perf_counter()
 
     return {
