@@ -1,17 +1,19 @@
 import ollama
-import base64
 from pydantic import BaseModel
 from typing import List
 import time
 import textwrap
+import glob
+import os
+import json
 from config import VISION_MODEL
-
-# need to do ollama run qwen2.5-vl to add to your ollama list
+from ingestion.loader import SlideData
+from config import PROCESSED_DIR
 
 class SlideChunk(BaseModel):
     
     """
-    Schema that holds raw data extracted from a single lecture slide
+    A processed slide ready for embedding
     
     """
     slide_num: int
@@ -20,11 +22,6 @@ class SlideChunk(BaseModel):
     image_path: str
     metadata: dict
 
-def encode_image(image_path: str) -> str:
-    
-    with open(image_path, "rb") as f:
-        return base64.b64encode(f.read()).decode("utf-8")
-    
 def generate_slide_description(
         image_path: str,
         raw_text: str
@@ -127,36 +124,32 @@ def process_slides_with_context(
             )
         )
 
+        print(elapsed)
+
     return processed_chunk
     
 
 def main():
 
-    from ingestion.loader import SlideData
-    import json
-    import os
-    from config import PROCESSED_DIR
+    all_slides_json = glob.glob(os.path.join(PROCESSED_DIR, "*_slides.json"))
 
-    slides_info_path = os.path.join(PROCESSED_DIR, "slides_info.json")
+    for slides_path in all_slides_json:
+        
+        out_path = slides_path.replace("_slides.json", "_chunks.json")
 
-    with open(slides_info_path, "r") as f:
-        data = json.load(f)
+        if os.path.exists(out_path):
+            print(f"Skipping {os.path.basename(slides_path)} (already processed)")
+            continue
 
-    raw_slides = [SlideData.model_validate(item) for item in data]
+        with open(slides_path) as f:
+            raw_slides = [SlideData.model_validate(item) for item in json.load(f)]
 
-    print(f"Loading raw slide data from: {slides_info_path}")
-    processed_slides = process_slides_with_context(raw_slides)
+        chunks = process_slides_with_context(raw_slides)
 
-    print(f"Processed {len(processed_slides)} slides successfully.")
+        with open(out_path, "w") as f:
+            json.dump([chunk.model_dump() for chunk in chunks], f, indent=2)
 
-    output_path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/processed_chunks.json"
-    
-    chunks_dict = [chunk.model_dump() for chunk in processed_slides]
-    
-    with open(output_path, "w") as f:
-        json.dump(chunks_dict, f, indent=2)
-
-    print(f"Saved {len(processed_slides)} processed chunks to {output_path}")
+        print(f"Saved {len(chunks)} chunks to {out_path}")
 
 if __name__ == "__main__":
     main()

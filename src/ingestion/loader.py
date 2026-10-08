@@ -3,6 +3,7 @@ import json
 import os
 from typing import List
 from pydantic import BaseModel
+import glob
 
 class SlideData(BaseModel):
     
@@ -49,13 +50,24 @@ def load_lecture_slides(pdf_path: str,
 
 def main():
 
-    from config import RAW_DIR, PROCESSED_DIR
-    import os
-    
-    slides = load_lecture_slides(os.path.join(RAW_DIR, "01_Introduction.pdf"), PROCESSED_DIR, dpi=200)
+    from config import RAW_DIR, IMAGE_STORE, PROCESSED_DIR
 
-    with open(f"{PROCESSED_DIR}/slides_info.json", "w") as f:
-        json.dump([slide.model_dump() for slide in slides], f, indent=2)
+    pdfs = glob.glob(os.path.join(RAW_DIR, "*.pdf"))
+
+    for pdf in pdfs:
+        stem = os.path.splitext(os.path.basename(pdf))[0]
+        out_path = os.path.join(PROCESSED_DIR, f"{stem}_slides.json")
+
+        if os.path.exists(out_path):
+            print(f"Skipping {stem} (already loaded)")
+            continue
+
+        slides = load_lecture_slides(pdf, IMAGE_STORE, dpi=200)
+
+        with open(out_path, "w") as f:
+            json.dump([slide.model_dump() for slide in slides], f, indent=2)
+
+        print(f"Loaded {stem}: {len(slides)} slides")
         # Able to do model_dump() because of pydantic class BaseModel
         # we can then reconstruct it back to the object by doing 
             # slides = SlideData.model_validate_json(saved_json)

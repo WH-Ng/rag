@@ -1,6 +1,8 @@
 import ollama
 from typing import List
 import json
+import os
+import glob
 from config import EMBED_MODEL, PROCESSED_DIR
 
 def generate_embeddings(
@@ -24,27 +26,28 @@ def generate_embeddings(
 
 def main():
    
-   import os
-   
-   processed_slides_path = os.path.join(PROCESSED_DIR, "processed_chunks.json")
-   with open(processed_slides_path, 'r') as f:
-        data = json.load(f)
+   all_processsed_paths = glob.glob(os.path.join(PROCESSED_DIR, "*_chunks.json"))
 
-   text_list = [slide['combined_text'].strip() for slide in data]
-   embeddings = generate_embeddings(text_list, batch_size=32)
+   for path in sorted(all_processsed_paths):
+        
+        with open(path, 'r') as f:
+                data = json.load(f)
 
-   for slide, embedding in zip(data, embeddings):
-      slide['embedding'] = embedding
+        text_list = [slide['combined_text'].strip() for slide in data]
+        embeddings = generate_embeddings(text_list, batch_size=32)
 
-   print(f"\nSuccessfully generated embeddings for {len(data)} slides.")
-   print(f"Vector dimensions: {len(embeddings[0])}")
+        for slide, embedding in zip(data, embeddings):
+            slide['embedding'] = embedding
 
-   output_path = "/Users/wayne/Personal_Project/rag/data/processed/Lectures/embedded_chunks.json"
-   
-   with open(output_path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, indent=2)   
+        print(f"\nSuccessfully generated embeddings for {len(data)} slides.")
+        print(f"Vector dimensions: {len(embeddings[0])}")
 
-   return data
+        output_path = os.path.join(PROCESSED_DIR, "embedded_chunks.json")
+
+        with open(output_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=2)   
+
+        return data
 
 if __name__=="__main__":
     main()

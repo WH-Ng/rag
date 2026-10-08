@@ -2,9 +2,9 @@
 import time
 from retrieval.search import search
 from generation.llm import generate_answer
-from config import DB_DIR, LLM_MODEL
+from config import DB_DIR, LLM_MODEL, TOP_K
 
-def answer(question: str, top_k: int = 4) -> dict:
+def answer(question: str, top_k: int = TOP_K) -> dict:
     t0 = time.perf_counter()
     hits = search(question, top_k=top_k, db_dir=DB_DIR)        # step 1: find slides
     t1 = time.perf_counter()
