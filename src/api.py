@@ -31,12 +31,12 @@ app = FastAPI(title="Lecture Slides RAG API")
 def health():
 
     count = get_chroma_collection(DB_DIR).count()
-    models = {m.models for m in ollama.list().models}
+    models = {m.model for m in ollama.list().models}
 
     missing_models = []
 
-    for model in (EMBED_MODEL, LLM_MODEL),:
-        if model not in models:
+    for model in (EMBED_MODEL, LLM_MODEL):
+        if model not in models and f"{model}:latest" not in models:
             missing_models.append(model)
 
     if missing_models:
@@ -48,6 +48,7 @@ def health():
     
     return {"status": "ok", "chunks_indexed": count}
 
+@app.post("/query", response_model=QueryResponse)
 def query(req: QueryRequest):
     
     result = answer(req.question, top_k=req.top_k)
