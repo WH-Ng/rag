@@ -3,3 +3,5 @@ pymupdf
 pydantic
 ollama
 chromadb
+fastapi
+uvicorn[standard]

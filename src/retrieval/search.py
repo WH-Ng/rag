@@ -1,12 +1,17 @@
 import chromadb
 from ingestion.embedder import generate_embeddings
 from typing import List, Dict
+from functools import lru_cache # Least Recently Used (LRU) cache
 from config import COLLECTION_NAME
 
+
+@ lru_cache
 def get_chroma_collection(db_dir: str):
     
     """
-    Connects to local persistent ChromaDB
+    Connects to local persistent ChromaDB. 
+    If you call the function again with the same arguments, 
+    it returns the pre-computed result immediately instead of running the code. Thanks for lru_cache
     """
     client = chromadb.PersistentClient(path=db_dir)
     collection = client.get_collection(name=COLLECTION_NAME)
