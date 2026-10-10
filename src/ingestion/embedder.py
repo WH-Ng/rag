@@ -27,27 +27,24 @@ def generate_embeddings(
 def main():
    
    all_processsed_paths = glob.glob(os.path.join(PROCESSED_DIR, "*_chunks.json"))
-
+   data = []
+   
    for path in sorted(all_processsed_paths):
-        
         with open(path, 'r') as f:
-                data = json.load(f)
+                data.extend = json.load(f)
 
         text_list = [slide['combined_text'].strip() for slide in data]
         embeddings = generate_embeddings(text_list, batch_size=32)
 
         for slide, embedding in zip(data, embeddings):
             slide['embedding'] = embedding
-
-        print(f"\nSuccessfully generated embeddings for {len(data)} slides.")
-        print(f"Vector dimensions: {len(embeddings[0])}")
+        
+        print(f"Embedded {len(data)} slides, {len(embeddings[0])} dimensions")
 
         output_path = os.path.join(PROCESSED_DIR, "embedded_chunks.json")
 
         with open(output_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, indent=2)   
-
-        return data
 
 if __name__=="__main__":
     main()
