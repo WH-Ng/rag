@@ -1,0 +1,37 @@
+[
+    {"question": "What are the assessments to this course?",
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 14}]},
+
+    {"question": "How long is the final exam?",
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 22}]},
+    
+    {"question": "What is the capital of France?",
+     "expected": []},
+
+    {"question": "What was the histogram from Uniform Distribution?",
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 43}]},
+
+    {"question": "How long is the final exam?",
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 22}]},
+
+    {"question": "What sources are recommended for the group project?",
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 16}]},
+
+    {"question": "What function in R that does NR approach?",
+     "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 68}]}, 
+
+    {"question": "What are the approaches of point estimations?",
+     "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 2}]},
+    
+    {"question": "Does sample size the likelihood plots?",
+     "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 21}]},
+
+    {"question": "What example distribution was used to demonstrate the Newton-Raphson Approach?",
+     "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 52}]},
+
+    {"question": "What is Hani's favourite colour?",
+     "expected": []},
+
+    {"question": "What is the table of probabilties talking about?",
+     "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 11}]}
+]

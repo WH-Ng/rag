@@ -4,4 +4,5 @@ pydantic
 ollama
 chromadb==1.5.9
 fastapi
+requests
 uvicorn[standard]

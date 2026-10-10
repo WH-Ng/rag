@@ -30,21 +30,22 @@ def main():
    data = []
    
    for path in sorted(all_processsed_paths):
-        with open(path, 'r') as f:
-                data.extend = json.load(f)
+      with open(path, 'r') as f:
+         data.extend(json.load(f))
 
-        text_list = [slide['combined_text'].strip() for slide in data]
-        embeddings = generate_embeddings(text_list, batch_size=32)
+   text_list = [slide['combined_text'].strip() for slide in data]
 
-        for slide, embedding in zip(data, embeddings):
-            slide['embedding'] = embedding
-        
-        print(f"Embedded {len(data)} slides, {len(embeddings[0])} dimensions")
+   embeddings = generate_embeddings(text_list, batch_size=32)
 
-        output_path = os.path.join(PROCESSED_DIR, "embedded_chunks.json")
+   for slide, embedding in zip(data, embeddings):
+       slide['embedding'] = embedding
+    
+   print(f"Embedded {len(data)} slides, {len(embeddings[0])} dimensions")
 
-        with open(output_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, indent=2)   
+   output_path = os.path.join(PROCESSED_DIR, "embedded_chunks.json")
+
+   with open(output_path, 'w', encoding='utf-8') as f:
+      json.dump(data, f, indent=2)   
 
 if __name__=="__main__":
     main()

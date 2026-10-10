@@ -1,0 +1,324 @@
+{
+  "summary": {
+    "questions": 12,
+    "hit_rate@4": 0.4,
+    "mrr": 0.35,
+    "refusal_rate": 1.0,
+    "latency_median_ms": 8486,
+    "latency_max_ms": 17613
+  },
+  "results": [
+    {
+      "question": "What are the assessments to this course?",
+      "latency_ms": 17613,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          9
+        ],
+        [
+          "01_Introduction.pdf",
+          14
+        ],
+        [
+          "01_Introduction.pdf",
+          10
+        ],
+        [
+          "01_Introduction.pdf",
+          15
+        ]
+      ],
+      "answer": "The assessments for this course include:\n- Weekly (5 weeks during the semester) Tutorial Solutions (5%)\n- Online quiz (0%)\n- Mid-Semester Assignment (20%)\n- Group Presentation/Project (15%)\n- Final Examination (60%)\n\nThese assessments and their respective percentages are detailed on Slide 14 of the 01_Introduction.pdf document.",
+      "type": "in_scope",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "question": "How long is the final exam?",
+      "latency_ms": 6617,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          22
+        ],
+        [
+          "01_Introduction.pdf",
+          14
+        ],
+        [
+          "01_Introduction.pdf",
+          16
+        ],
+        [
+          "01_Introduction.pdf",
+          11
+        ]
+      ],
+      "answer": "The final exam will be 3 hours in length, with an additional 15 minutes for reading time (01_Introduction.pdf, slide 22).",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What is the capital of France?",
+      "latency_ms": 5954,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          26
+        ],
+        [
+          "01_Introduction.pdf",
+          20
+        ],
+        [
+          "01_Introduction.pdf",
+          8
+        ],
+        [
+          "01_Introduction.pdf",
+          24
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "out_of_scope",
+      "refused": true,
+      "passed": true
+    },
+    {
+      "question": "What was the histogram from Uniform Distribution?",
+      "latency_ms": 10503,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          28
+        ],
+        [
+          "01_Introduction.pdf",
+          40
+        ],
+        [
+          "01_Introduction.pdf",
+          42
+        ],
+        [
+          "01_Introduction.pdf",
+          29
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "in_scope",
+      "rank": null,
+      "passed": false
+    },
+    {
+      "question": "How long is the final exam?",
+      "latency_ms": 6293,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          22
+        ],
+        [
+          "01_Introduction.pdf",
+          14
+        ],
+        [
+          "01_Introduction.pdf",
+          16
+        ],
+        [
+          "01_Introduction.pdf",
+          11
+        ]
+      ],
+      "answer": "The final exam will be 3 hours in length, with an additional 15 minutes for reading time (01_Introduction.pdf, slide 22).",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What sources are recommended for the group project?",
+      "latency_ms": 12447,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          16
+        ],
+        [
+          "01_Introduction.pdf",
+          12
+        ],
+        [
+          "01_Introduction.pdf",
+          17
+        ],
+        [
+          "01_Introduction.pdf",
+          37
+        ]
+      ],
+      "answer": "For the group project, the recommended sources are academic/scientific papers from well-known statistics journals. Specifically, papers from journals such as:\n\n- The Annals of Applied Statistics\n- The Annals of Statistics\n- Australian & New Zealand Journal of Statistics\n- Biometrika\n- Canadian Journal of Statistics\n- Environmetrics\n- Journal of Agricultural, Biological, and Environmental Statistics\n- Journal of the American Statistical Association\n- Journal of Business & Economic Statistics\n\nThese sources are mentioned in the context of the STAT4027/STAT6027 group project (01_Introduction.pdf, slide 17).",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What function in R that does NR approach?",
+      "latency_ms": 7038,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          49
+        ],
+        [
+          "01_Introduction.pdf",
+          32
+        ],
+        [
+          "01_Introduction.pdf",
+          48
+        ],
+        [
+          "01_Introduction.pdf",
+          47
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "in_scope",
+      "rank": null,
+      "passed": false
+    },
+    {
+      "question": "What are the approaches of point estimations?",
+      "latency_ms": 9302,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          9
+        ],
+        [
+          "01_Introduction.pdf",
+          10
+        ],
+        [
+          "01_Introduction.pdf",
+          31
+        ],
+        [
+          "01_Introduction.pdf",
+          32
+        ]
+      ],
+      "answer": "The course mentions that point estimation is covered under Frequentist, Bayesian, and Non-Parametric (frequentist) approaches. This information can be found in Slide 10 of the 01_Introduction.pdf (01_Introduction.pdf, slide 10).",
+      "type": "in_scope",
+      "rank": null,
+      "passed": false
+    },
+    {
+      "question": "Does sample size the likelihood plots?",
+      "latency_ms": 8196,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          46
+        ],
+        [
+          "01_Introduction.pdf",
+          47
+        ],
+        [
+          "01_Introduction.pdf",
+          34
+        ],
+        [
+          "01_Introduction.pdf",
+          45
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "in_scope",
+      "rank": null,
+      "passed": false
+    },
+    {
+      "question": "What example distribution was used to demonstrate the Newton-Raphson Approach?",
+      "latency_ms": 8775,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          45
+        ],
+        [
+          "01_Introduction.pdf",
+          47
+        ],
+        [
+          "01_Introduction.pdf",
+          46
+        ],
+        [
+          "01_Introduction.pdf",
+          49
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "in_scope",
+      "rank": null,
+      "passed": false
+    },
+    {
+      "question": "What is Hani's favourite colour?",
+      "latency_ms": 9857,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          42
+        ],
+        [
+          "01_Introduction.pdf",
+          43
+        ],
+        [
+          "01_Introduction.pdf",
+          6
+        ],
+        [
+          "01_Introduction.pdf",
+          26
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "out_of_scope",
+      "refused": true,
+      "passed": true
+    },
+    {
+      "question": "What is the table of probabilties talking about?",
+      "latency_ms": 7103,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          46
+        ],
+        [
+          "01_Introduction.pdf",
+          45
+        ],
+        [
+          "01_Introduction.pdf",
+          43
+        ],
+        [
+          "01_Introduction.pdf",
+          47
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "in_scope",
+      "rank": null,
+      "passed": false
+    }
+  ]
+}

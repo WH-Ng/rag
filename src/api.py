@@ -5,7 +5,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel, Field
 # field adds extra validation alongside type hints
 
-from config import DB_DIR, EMBED_MODEL, LLM_MODEL, TOP_K, VISION_MODEL
+from config import DB_DIR, EMBED_MODEL, LLM_MODEL, TOP_K
 from rag import answer
 from retrieval.search import get_chroma_collection
 
@@ -35,7 +35,9 @@ def health():
 
     missing_models = []
 
-    for model in (EMBED_MODEL, LLM_MODEL, VISION_MODEL):
+    # we dont check for vision model because api never uses it. Vision model is only used during ingestion,
+    # answering question uses EMBED_MODEL and LLM_MODEL for summarising
+    for model in (EMBED_MODEL, LLM_MODEL): 
         if model not in models and f"{model}:latest" not in models:
             missing_models.append(model)
 
