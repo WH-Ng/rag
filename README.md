@@ -1,5 +1,7 @@
 # Lecture Slides RAG
 
+> This README was generated using artificial intelligence models with full context of the project codebase. The content was subsequently proofread, modified, and approved by the maintainer to ensure technical accuracy and relevance
+
 Ask a question about a university lecture course and get an answer **grounded in the lecture slides, with the slide it came from cited**. If the slides don't cover the question, the service says so instead of guessing.
 
 Everything runs locally: three open-weight models are served by [Ollama](https://ollama.com), retrieval uses a [Chroma](https://www.trychroma.com) vector database, and the system is exposed as a [FastAPI](https://fastapi.tiangolo.com) inference service, packaged with Docker Compose.
