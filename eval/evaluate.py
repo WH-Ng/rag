@@ -26,7 +26,7 @@ def evaluate_case(case: dict) -> dict:
 
     if expected:   
         rank = next((i + 1 for i, slide in enumerate(retrieved) if slide in expected), None)
-        result.update(type="in_scope", rank=rank, passed=rank is not None)
+        result.update(type="in_scope", rank=rank, refused=refused, passed=rank is not None)
 
     else:          
         result.update(type="out_of_scope", refused=refused, passed=refused)
@@ -58,6 +58,7 @@ def main():
         f"hit_rate@{TOP_K}": round(sum(r["passed"] for r in in_scope) / len(in_scope), 2) if in_scope else None,
         "mrr": round(sum(1 / r["rank"] for r in in_scope if r["rank"]) / len(in_scope), 2) if in_scope else None,
         "refusal_rate": round(sum(r["refused"] for r in out_scope) / len(out_scope), 2) if out_scope else None,
+        "answer_rate": round(sum(not r["refused"] for r in in_scope) / len(in_scope), 2) if in_scope else None,
         "latency_median_ms": round(statistics.median(latencies)),
         "latency_max_ms": max(latencies),
     }

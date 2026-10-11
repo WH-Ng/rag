@@ -1,16 +1,17 @@
 {
   "summary": {
     "questions": 12,
-    "hit_rate@4": 0.4,
-    "mrr": 0.35,
+    "hit_rate@4": 0.9,
+    "mrr": 0.73,
     "refusal_rate": 1.0,
-    "latency_median_ms": 8486,
-    "latency_max_ms": 17613
+    "answer_rate": 0.8,
+    "latency_median_ms": 6962,
+    "latency_max_ms": 12567
   },
   "results": [
     {
       "question": "What are the assessments to this course?",
-      "latency_ms": 17613,
+      "latency_ms": 7133,
       "retrieved": [
         [
           "01_Introduction.pdf",
@@ -29,14 +30,15 @@
           15
         ]
       ],
-      "answer": "The assessments for this course include:\n- Weekly (5 weeks during the semester) Tutorial Solutions (5%)\n- Online quiz (0%)\n- Mid-Semester Assignment (20%)\n- Group Presentation/Project (15%)\n- Final Examination (60%)\n\nThese assessments and their respective percentages are detailed on Slide 14 of the 01_Introduction.pdf document.",
+      "answer": "The assessments for this course include:\n- Weekly (5 weeks during the semester) Tutorial Solutions (5%)\n- Online quiz (0%)\n- Mid-Semester Assignment (20%)\n- Group Presentation/Project (15%)\n- Final Examination (60%)\n\nThese assessments and their respective percentages are listed on Slide 14 of the 01_Introduction.pdf presentation.",
       "type": "in_scope",
       "rank": 2,
+      "refused": false,
       "passed": true
     },
     {
       "question": "How long is the final exam?",
-      "latency_ms": 6617,
+      "latency_ms": 5257,
       "retrieved": [
         [
           "01_Introduction.pdf",
@@ -51,18 +53,19 @@
           16
         ],
         [
-          "01_Introduction.pdf",
-          11
+          "05_Estimation_Procedures.pdf",
+          54
         ]
       ],
       "answer": "The final exam will be 3 hours in length, with an additional 15 minutes for reading time (01_Introduction.pdf, slide 22).",
       "type": "in_scope",
       "rank": 1,
+      "refused": false,
       "passed": true
     },
     {
       "question": "What is the capital of France?",
-      "latency_ms": 5954,
+      "latency_ms": 4311,
       "retrieved": [
         [
           "01_Introduction.pdf",
@@ -87,60 +90,62 @@
       "passed": true
     },
     {
-      "question": "What was the histogram from Uniform Distribution?",
-      "latency_ms": 10503,
+      "question": "What was the histogram generated from a Uniform Distribution?",
+      "latency_ms": 6740,
       "retrieved": [
-        [
-          "01_Introduction.pdf",
-          28
-        ],
         [
           "01_Introduction.pdf",
           40
         ],
         [
           "01_Introduction.pdf",
-          42
+          39
         ],
         [
           "01_Introduction.pdf",
-          29
+          28
+        ],
+        [
+          "01_Introduction.pdf",
+          42
         ]
       ],
       "answer": "I couldn't find that in the lecture slides.",
       "type": "in_scope",
-      "rank": null,
-      "passed": false
+      "rank": 1,
+      "refused": true,
+      "passed": true
     },
     {
-      "question": "How long is the final exam?",
-      "latency_ms": 6293,
+      "question": "What were the plots that show a visual of log transformation of the data?",
+      "latency_ms": 9675,
       "retrieved": [
         [
           "01_Introduction.pdf",
-          22
+          29
         ],
         [
           "01_Introduction.pdf",
-          14
+          30
         ],
         [
-          "01_Introduction.pdf",
-          16
+          "05_Estimation_Procedures.pdf",
+          27
         ],
         [
-          "01_Introduction.pdf",
-          11
+          "05_Estimation_Procedures.pdf",
+          25
         ]
       ],
-      "answer": "The final exam will be 3 hours in length, with an additional 15 minutes for reading time (01_Introduction.pdf, slide 22).",
+      "answer": "The plots that show a visual of the log transformation of the data are found on Slide 29 of 01_Introduction.pdf. These plots display histograms of the log-transformed GDP and labor data, providing a visual representation of their distributions.",
       "type": "in_scope",
       "rank": 1,
+      "refused": false,
       "passed": true
     },
     {
       "question": "What sources are recommended for the group project?",
-      "latency_ms": 12447,
+      "latency_ms": 9907,
       "retrieved": [
         [
           "01_Introduction.pdf",
@@ -159,134 +164,139 @@
           37
         ]
       ],
-      "answer": "For the group project, the recommended sources are academic/scientific papers from well-known statistics journals. Specifically, papers from journals such as:\n\n- The Annals of Applied Statistics\n- The Annals of Statistics\n- Australian & New Zealand Journal of Statistics\n- Biometrika\n- Canadian Journal of Statistics\n- Environmetrics\n- Journal of Agricultural, Biological, and Environmental Statistics\n- Journal of the American Statistical Association\n- Journal of Business & Economic Statistics\n\nThese sources are mentioned in the context of the STAT4027/STAT6027 group project (01_Introduction.pdf, slide 17).",
+      "answer": "For the group project, the recommended sources are academic/scientific papers. Specifically, for STAT4027/STAT6027 students, the papers should be chosen from well-known statistics journals such as The Annals of Applied Statistics, The Annals of Statistics, Australian & New Zealand Journal of Statistics, Biometrika, Canadian Journal of Statistics, Environmetrics, Journal of Agricultural, Biological, and Environmental Statistics, Journal of the American Statistical Association, and Journal of Business & Economic Statistics. (01_Introduction.pdf, slide 16 and slide 17)",
       "type": "in_scope",
-      "rank": 1,
+      "rank": 3,
+      "refused": false,
       "passed": true
     },
     {
-      "question": "What function in R that does NR approach?",
-      "latency_ms": 7038,
+      "question": "What function in R does the Newton-Raphson approach?",
+      "latency_ms": 6792,
       "retrieved": [
         [
-          "01_Introduction.pdf",
+          "05_Estimation_Procedures.pdf",
           49
         ],
         [
-          "01_Introduction.pdf",
-          32
+          "05_Estimation_Procedures.pdf",
+          57
         ],
         [
-          "01_Introduction.pdf",
-          48
+          "05_Estimation_Procedures.pdf",
+          53
         ],
         [
-          "01_Introduction.pdf",
-          47
+          "05_Estimation_Procedures.pdf",
+          59
         ]
       ],
       "answer": "I couldn't find that in the lecture slides.",
       "type": "in_scope",
       "rank": null,
+      "refused": true,
       "passed": false
     },
     {
       "question": "What are the approaches of point estimations?",
-      "latency_ms": 9302,
+      "latency_ms": 6537,
       "retrieved": [
+        [
+          "05_Estimation_Procedures.pdf",
+          2
+        ],
         [
           "01_Introduction.pdf",
           9
         ],
         [
+          "05_Estimation_Procedures.pdf",
+          4
+        ],
+        [
           "01_Introduction.pdf",
           10
-        ],
-        [
-          "01_Introduction.pdf",
-          31
-        ],
-        [
-          "01_Introduction.pdf",
-          32
         ]
       ],
-      "answer": "The course mentions that point estimation is covered under Frequentist, Bayesian, and Non-Parametric (frequentist) approaches. This information can be found in Slide 10 of the 01_Introduction.pdf (01_Introduction.pdf, slide 10).",
+      "answer": "The approaches to point estimation mentioned in the lecture slides include:\n- least squares\n- method of moments\n- maximum likelihood\n- Bayesian estimation\n\nThese are listed on Slide 2 of 05_Estimation_Procedures.pdf.",
       "type": "in_scope",
-      "rank": null,
-      "passed": false
+      "rank": 1,
+      "refused": false,
+      "passed": true
     },
     {
-      "question": "Does sample size the likelihood plots?",
-      "latency_ms": 8196,
+      "question": "Does sample size affect the likelihood plots?",
+      "latency_ms": 10775,
       "retrieved": [
         [
-          "01_Introduction.pdf",
-          46
+          "05_Estimation_Procedures.pdf",
+          21
         ],
         [
-          "01_Introduction.pdf",
-          47
+          "05_Estimation_Procedures.pdf",
+          19
         ],
         [
-          "01_Introduction.pdf",
-          34
+          "05_Estimation_Procedures.pdf",
+          17
         ],
         [
-          "01_Introduction.pdf",
-          45
+          "05_Estimation_Procedures.pdf",
+          10
         ]
       ],
-      "answer": "I couldn't find that in the lecture slides.",
+      "answer": "Yes, sample size affects the likelihood plots. Specifically, the peaks of the likelihood functions become narrower and more regular in shape as the sample size increases. This is observed in both Slide 19 and Slide 21, where the likelihood functions for sample sizes of 25 and 5 are compared, respectively. (05_Estimation_Procedures.pdf, slide 19 and slide 21)",
       "type": "in_scope",
-      "rank": null,
-      "passed": false
+      "rank": 1,
+      "refused": false,
+      "passed": true
     },
     {
       "question": "What example distribution was used to demonstrate the Newton-Raphson Approach?",
-      "latency_ms": 8775,
+      "latency_ms": 8752,
       "retrieved": [
         [
-          "01_Introduction.pdf",
-          45
+          "05_Estimation_Procedures.pdf",
+          53
         ],
         [
-          "01_Introduction.pdf",
-          47
-        ],
-        [
-          "01_Introduction.pdf",
-          46
-        ],
-        [
-          "01_Introduction.pdf",
+          "05_Estimation_Procedures.pdf",
           49
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          57
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          59
         ]
       ],
-      "answer": "I couldn't find that in the lecture slides.",
+      "answer": "The example distribution used to demonstrate the Newton-Raphson Approach was a Poisson distribution (05_Estimation_Procedures.pdf, slide 53) and a normal distribution (05_Estimation_Procedures.pdf, slide 59).",
       "type": "in_scope",
-      "rank": null,
-      "passed": false
+      "rank": 1,
+      "refused": false,
+      "passed": true
     },
     {
       "question": "What is Hani's favourite colour?",
-      "latency_ms": 9857,
+      "latency_ms": 6778,
       "retrieved": [
         [
           "01_Introduction.pdf",
           42
         ],
         [
+          "05_Estimation_Procedures.pdf",
+          48
+        ],
+        [
           "01_Introduction.pdf",
           43
         ],
         [
-          "01_Introduction.pdf",
-          6
-        ],
-        [
-          "01_Introduction.pdf",
-          26
+          "05_Estimation_Procedures.pdf",
+          61
         ]
       ],
       "answer": "I couldn't find that in the lecture slides.",
@@ -296,29 +306,30 @@
     },
     {
       "question": "What is the table of probabilties talking about?",
-      "latency_ms": 7103,
+      "latency_ms": 12567,
       "retrieved": [
         [
           "01_Introduction.pdf",
           46
         ],
         [
+          "05_Estimation_Procedures.pdf",
+          11
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          36
+        ],
+        [
           "01_Introduction.pdf",
           45
-        ],
-        [
-          "01_Introduction.pdf",
-          43
-        ],
-        [
-          "01_Introduction.pdf",
-          47
         ]
       ],
-      "answer": "I couldn't find that in the lecture slides.",
+      "answer": "The table of probabilities is discussing the probabilities of different outcomes of a random variable \\(X\\) (0, 1, 2, 3) for two different parameter values, \\(p_1 = \\frac{3}{4}\\) and \\(p_2 = \\frac{1}{4}\\). The probabilities are given in fractions of 64. This table is used to derive a Maximum Likelihood Estimator for the true population value of \\(p\\), based on the \"preponderance of evidence\" or likelihood. (05_Estimation_Procedures.pdf, slide 11)",
       "type": "in_scope",
-      "rank": null,
-      "passed": false
+      "rank": 2,
+      "refused": false,
+      "passed": true
     }
   ]
 }

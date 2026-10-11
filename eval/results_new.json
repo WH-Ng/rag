@@ -1,0 +1,324 @@
+{
+  "summary": {
+    "questions": 12,
+    "hit_rate@4": 0.9,
+    "mrr": 0.73,
+    "refusal_rate": 1.0,
+    "latency_median_ms": 7133,
+    "latency_max_ms": 14011
+  },
+  "results": [
+    {
+      "question": "What are the assessments to this course?",
+      "latency_ms": 7308,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          9
+        ],
+        [
+          "01_Introduction.pdf",
+          14
+        ],
+        [
+          "01_Introduction.pdf",
+          10
+        ],
+        [
+          "01_Introduction.pdf",
+          15
+        ]
+      ],
+      "answer": "The assessments for this course include:\n- Weekly (5 weeks during the semester) Tutorial Solutions (5%)\n- Online quiz (0%)\n- Mid-Semester Assignment (20%)\n- Group Presentation/Project (15%)\n- Final Examination (60%)\n\nThese assessments and their respective percentages are detailed on Slide 14 of the 01_Introduction.pdf document.",
+      "type": "in_scope",
+      "rank": 2,
+      "passed": true
+    },
+    {
+      "question": "How long is the final exam?",
+      "latency_ms": 5102,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          22
+        ],
+        [
+          "01_Introduction.pdf",
+          14
+        ],
+        [
+          "01_Introduction.pdf",
+          16
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          54
+        ]
+      ],
+      "answer": "The final exam will be 3 hours in length, with an additional 15 minutes for reading time (01_Introduction.pdf, slide 22).",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What is the capital of France?",
+      "latency_ms": 4009,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          26
+        ],
+        [
+          "01_Introduction.pdf",
+          20
+        ],
+        [
+          "01_Introduction.pdf",
+          8
+        ],
+        [
+          "01_Introduction.pdf",
+          24
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "out_of_scope",
+      "refused": true,
+      "passed": true
+    },
+    {
+      "question": "What was the histogram generated from a Uniform Distribution?",
+      "latency_ms": 6705,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          40
+        ],
+        [
+          "01_Introduction.pdf",
+          39
+        ],
+        [
+          "01_Introduction.pdf",
+          28
+        ],
+        [
+          "01_Introduction.pdf",
+          42
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What were the plots that show a visual of log transformation of the data?",
+      "latency_ms": 9803,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          29
+        ],
+        [
+          "01_Introduction.pdf",
+          30
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          27
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          25
+        ]
+      ],
+      "answer": "The plots that show a visual of the log transformation of the data are found on Slide 29 of 01_Introduction.pdf. These plots display histograms of the logarithm of GDP and labor, as well as a scatter plot showing the relationship between these logarithmic transformations.",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What sources are recommended for the group project?",
+      "latency_ms": 8972,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          16
+        ],
+        [
+          "01_Introduction.pdf",
+          12
+        ],
+        [
+          "01_Introduction.pdf",
+          17
+        ],
+        [
+          "01_Introduction.pdf",
+          37
+        ]
+      ],
+      "answer": "For the group project, the recommended sources are academic/scientific papers from well-known statistics journals. Specifically, papers from journals such as:\n\n- The Annals of Applied Statistics\n- The Annals of Statistics\n- Australian & New Zealand Journal of Statistics\n- Biometrika\n- Canadian Journal of Statistics\n- Environmetrics\n- Journal of Agricultural, Biological, and Environmental Statistics\n- Journal of the American Statistical Association\n- Journal of Business & Economic Statistics\n\nThese sources are mentioned in the context of the STAT4027/STAT6027 group project (01_Introduction.pdf, slide 17).",
+      "type": "in_scope",
+      "rank": 3,
+      "passed": true
+    },
+    {
+      "question": "What function in R does the NR approach?",
+      "latency_ms": 5222,
+      "retrieved": [
+        [
+          "05_Estimation_Procedures.pdf",
+          49
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          57
+        ],
+        [
+          "01_Introduction.pdf",
+          49
+        ],
+        [
+          "01_Introduction.pdf",
+          32
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "in_scope",
+      "rank": null,
+      "passed": false
+    },
+    {
+      "question": "What are the approaches of point estimations?",
+      "latency_ms": 6501,
+      "retrieved": [
+        [
+          "05_Estimation_Procedures.pdf",
+          2
+        ],
+        [
+          "01_Introduction.pdf",
+          9
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          4
+        ],
+        [
+          "01_Introduction.pdf",
+          10
+        ]
+      ],
+      "answer": "Some general approaches to determine a good guess for point estimation include:\n- least squares\n- method of moments\n- maximum likelihood\n- Bayesian estimation\n\nThese approaches are listed on Slide 2 of 05_Estimation_Procedures.pdf.",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "Does sample size affect the likelihood plots?",
+      "latency_ms": 10508,
+      "retrieved": [
+        [
+          "05_Estimation_Procedures.pdf",
+          21
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          19
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          17
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          10
+        ]
+      ],
+      "answer": "Yes, sample size affects the likelihood plots. Specifically, the peaks of the likelihood functions become narrower and more regular in shape as the sample size increases. This is observed in both Slide 19 and Slide 21, where the likelihood functions for sample sizes of 25 and 5 are compared, respectively. (05_Estimation_Procedures.pdf, slide 19 and slide 21)",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What example distribution was used to demonstrate the Newton-Raphson Approach?",
+      "latency_ms": 8710,
+      "retrieved": [
+        [
+          "05_Estimation_Procedures.pdf",
+          53
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          49
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          57
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          59
+        ]
+      ],
+      "answer": "The example distribution used to demonstrate the Newton-Raphson Approach was a Poisson distribution (05_Estimation_Procedures.pdf, slide 53) and a normal distribution (05_Estimation_Procedures.pdf, slide 59).",
+      "type": "in_scope",
+      "rank": 1,
+      "passed": true
+    },
+    {
+      "question": "What is Hani's favourite colour?",
+      "latency_ms": 6958,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          42
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          48
+        ],
+        [
+          "01_Introduction.pdf",
+          43
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          61
+        ]
+      ],
+      "answer": "I couldn't find that in the lecture slides.",
+      "type": "out_of_scope",
+      "refused": true,
+      "passed": true
+    },
+    {
+      "question": "What is the table of probabilties talking about?",
+      "latency_ms": 14011,
+      "retrieved": [
+        [
+          "01_Introduction.pdf",
+          46
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          11
+        ],
+        [
+          "05_Estimation_Procedures.pdf",
+          36
+        ],
+        [
+          "01_Introduction.pdf",
+          45
+        ]
+      ],
+      "answer": "The table of probabilities is discussing the Maximum Likelihood Estimation (MLE) for the parameter \\( p \\) of a Bernoulli distribution based on the outcomes of a random variable \\( X \\). Specifically, it shows the probabilities for \\( X = 0, 1, 2, 3 \\) under two different parameter values, \\( p_1 = \\frac{3}{4} \\) and \\( p_2 = \\frac{1}{4} \\). The table helps in determining the most likely value of \\( p \\) given the observed data, with the estimator \\(\\hat{p}\\) being the value of \\( p \\) that maximizes the likelihood of the observed outcomes. (05_Estimation_Procedures.pdf, slide 11)",
+      "type": "in_scope",
+      "rank": 2,
+      "passed": true
+    }
+  ]
+}

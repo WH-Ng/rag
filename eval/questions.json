@@ -8,26 +8,31 @@
     {"question": "What is the capital of France?",
      "expected": []},
 
-    {"question": "What was the histogram from Uniform Distribution?",
-     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 43}]},
+    {"question": "What was the histogram generated from a Uniform Distribution?",
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 40},
+                  {"pdf_name": "01_Introduction.pdf", "slide_num": 41},
+                  {"pdf_name": "01_Introduction.pdf", "slide_num": 42},
+                  {"pdf_name": "01_Introduction.pdf", "slide_num": 43}]},
 
-    {"question": "How long is the final exam?",
-     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 22}]},
+    {"question": "What were the plots that show a visual of log transformation of the data?",
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 29}]},
 
     {"question": "What sources are recommended for the group project?",
-     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 16}]},
+     "expected": [{"pdf_name": "01_Introduction.pdf", "slide_num": 17},
+                  {"pdf_name": "01_Introduction.pdf", "slide_num": 18}]},
 
-    {"question": "What function in R that does NR approach?",
+    {"question": "What function in R does the Newton-Raphson approach?",
      "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 68}]}, 
 
     {"question": "What are the approaches of point estimations?",
      "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 2}]},
     
-    {"question": "Does sample size the likelihood plots?",
+    {"question": "Does sample size affect the likelihood plots?",
      "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 21}]},
 
     {"question": "What example distribution was used to demonstrate the Newton-Raphson Approach?",
-     "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 52}]},
+     "expected": [{"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 52},
+                  {"pdf_name": "05_Estimation_Procedures.pdf", "slide_num": 53}]},
 
     {"question": "What is Hani's favourite colour?",
      "expected": []},
