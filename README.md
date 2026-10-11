@@ -96,7 +96,7 @@ Then open **http://localhost:8000/docs** to try queries interactively.
 
 Request and response bodies are validated with Pydantic, so malformed requests (empty question, `top_k` out of range) are rejected with `422` before any model runs. The response model also strips internal fields such as local file paths.
 
-**Calling the service from Python** — no knowledge of the internals needed:
+**Calling the service from Python** 
 
 ```python
 import requests
@@ -120,7 +120,7 @@ ollama pull qwen2.5vl:7b && ollama pull bge-m3
 # put PDFs in data/raw/lectures/, then from src/:
 cd src
 python -m ingestion.loader      # PDF -> per-lecture *_slides.json + slide images
-python -m ingestion.splitter    # vision descriptions -> per-lecture *_chunks.json   (slowest step)
+python -m ingestion.splitter    # vision descriptions -> per-lecture *_chunks.json
 python -m ingestion.embedder    # all chunks -> embedded_chunks.json
 python -m ingestion.store       # upsert into storage/chroma_db
 ```
